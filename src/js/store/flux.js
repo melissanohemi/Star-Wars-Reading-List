@@ -1,6 +1,9 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
+			people: [],
+			planets: [],
+			vehicles: [],
 			demo: [
 				{
 					title: "FIRST",
@@ -15,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			]
 		},
 		actions: {
+			
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
@@ -37,9 +41,37 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
-			}
-		}
+			},
+		
+		getAllPeople: async () => {
+			const response = await fetch(
+				"https://www.swapi.tech/api/people"
+			);
+			const payload = await response.json();
+			setStore({ people: payload.results});
+			return payload.results 
+		
+		},
+		getAllPlanets: async () => {
+			const response = await fetch(
+				"https://www.swapi.tech/api/planets"
+			);
+			const payload = await response.json();
+			setStore({ planets: payload.results});
+			return payload.results 
+		
+		},
+		getAllVehicles: async () => {
+			const response = await fetch(
+				"https://www.swapi.tech/api/starships"
+			);
+			const payload = await response.json();
+			setStore({ vehicles: payload.results});
+			return payload.results 
+		
+		}},
 	};
 };
+
 
 export default getState;

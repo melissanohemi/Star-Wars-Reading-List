@@ -13,6 +13,7 @@ import { Footer } from "./component/footer";
 import Planet from "./views/planet.jsx";
 import Vehicle from "./views/vehicle.jsx";
 import Character from "./views/character.jsx";
+import SingleCharacter from "./views/singlecharacter.jsx"; 
 
 
 //create your first component
@@ -30,8 +31,8 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/characters">
-							<Character />
+						<Route exact path="/:type/:theid">
+							<SingleCharacter />
 						</Route>
 						<Route exact path="/planets/">
 							<Planet />
