@@ -8,16 +8,16 @@ import Vehicle from "./vehicle.jsx";
 
 export const Home = () => {
 	return (<div className="text-center mt-5">
-		<div class="row">
-			<div class="row">
+		<div className="row">
+			<div className="row">
 				<h1>Characters</h1>
 				< Character />
 			</div>
-			<div class="row">
+			<div className="row">
 				<h1>Planets</h1>
 				< Planet />
 			</div>
-			<div class="row">
+			<div className="row">
 				<h1>Starships</h1>
 				< Vehicle />
 			</div>

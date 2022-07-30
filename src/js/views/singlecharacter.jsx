@@ -12,19 +12,23 @@ const SingleCharacter = () => {
 const [item, setItem] = useState([]);
      useEffect(() => {
          actions.getAllPeople()
-        setItem(store[params.type][params.theId]?.name);
+        setItem(store.people.filter(person => person.uid === params.theId));
             
         },[]);
 
-
+     
   return (
     <>
+    {
+      item.length > 0 &&
+    
     <div className="container text-center">
     
-            <h3 className="card-title">{store[params.type][params.theId]?.name}</h3>
+            <h3 className="card-title">{item[0].name}</h3>
             </div>
+      }
     </>
-  )
+    )
 
   SingleCharacter.propTypes = {
     match: PropTypes.object
